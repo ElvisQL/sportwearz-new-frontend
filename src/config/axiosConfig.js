@@ -1,5 +1,5 @@
 // Esta función configurará el objeto de encabezados basándose en el token del usuario
-export const getConfigWithToken = (includeCredentials = false) => {
+export const getConfigWithToken = () => {
     // Utiliza el hook useSelector dentro de esta función de componente
     const persistedState = localStorage.getItem("persist:root");
 
@@ -14,11 +14,9 @@ export const getConfigWithToken = (includeCredentials = false) => {
         headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
-            Accept: "application/json",
+
         },
     };
-    if (includeCredentials) {
-        config.withCredentials = true;
-    }
+
     return config;
 };

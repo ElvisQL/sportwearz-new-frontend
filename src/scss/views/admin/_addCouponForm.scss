@@ -1,0 +1,45 @@
+.box-add-coupon {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+  h1 {
+    font-family: $main_font;
+    font-size: 2.5em;
+  }
+  .formulario {
+    width: 50%;
+    height: 25em;
+    form {
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .section-form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-family: $main_font;
+          font-size: 1.15em;
+          font-weight: bold;
+        }
+        input {
+          @include inputForm;
+        }
+        button {
+
+          @include buttonCustom;
+          &{
+            margin-left: 25%;
+            width: 50%;
+            height: 2.5em;
+          }
+        }
+      }
+    }
+  }
+}

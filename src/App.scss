@@ -1,0 +1,30 @@
+@import "scss/base/variables";
+@import "scss/base/reset";
+
+//mixins
+@import "scss/mixins/button";
+@import "scss/mixins/inputForm";
+@import "scss/mixins/table";
+@import "scss/mixins/card";
+
+
+@import "scss/components/header";
+@import "scss/components/footer";
+@import "scss/components/formloginsignup";
+@import "scss/views/catalogo";
+@import "scss/components/loader";
+
+@import "scss/views/home";
+@import "scss/views/catalogo";
+@import "scss/views/itemdetail";
+@import "scss/views/checkout";
+
+
+
+
+//admin interface
+@import "scss/views/admin/menuDashboard";
+@import "scss/views/admin/addCategoryForm";
+@import "scss/views/admin/addProductForm";
+@import "scss/views/admin/addBrandForm";
+@import "scss/views/admin/addCouponForm";

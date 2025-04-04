@@ -1,0 +1,10 @@
+@mixin inputForm {
+  margin-top: 0.375em;
+  height: 3.125em;
+  border-radius: 0.5em;
+  border: solid 0.125em $violetita;
+  padding-left: 0.625em;
+  &:focus {
+    outline: none;
+  }
+}

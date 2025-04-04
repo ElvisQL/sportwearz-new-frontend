@@ -1,0 +1,44 @@
+.addCategorieForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+  width: 100%;
+  h2 {
+    font-size: 2em;
+    font-family: $main-font;
+    margin-bottom: 1em;
+  }
+  .formulario {
+    width: 50%;
+    height: 20em;
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .sectionForm {
+        display: flex;
+        flex-direction: column;
+        label {
+          font-family: $main-font;
+          font-size: 1.15em;
+          font-weight: bold;
+        }
+        input {
+          @include inputForm;
+        }
+        span {
+          color: red;
+          font-family: $main-font;
+        }
+      }
+      button {
+        @include buttonCustom;
+        & {
+          height: 2.5em;
+        }
+      }
+    }
+  }
+}

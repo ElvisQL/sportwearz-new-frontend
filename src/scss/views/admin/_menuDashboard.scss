@@ -1,0 +1,169 @@
+.layout-dashboard {
+  display: flex;
+  flex-direction: row;
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #2c2c2c;
+    height: auto;
+    min-height: 100vh;
+
+    .brand-container {
+      height: 10vh;
+      overflow: hidden;
+      border-bottom: $violetita 1px solid;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .menubox {
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .divider {
+        border-color: #ffffec;
+        span {
+          color: #ffffec;
+        }
+      }
+      .menu-antd {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #2c2c2c;
+        font-size: 1.2em;
+        a {
+          text-decoration: none;
+        }
+        li {
+          margin-bottom: 1.5em;
+        }
+        svg {
+          font-size: 1.2em;
+        }
+      }
+    }
+
+    .list-routes {
+      height: 80%;
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        span {
+          color: #ffffec;
+          font-family: $main-font;
+        }
+        li {
+          display: flex;
+
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          border-bottom: $beige-crema 1px solid;
+          .item-menu {
+            text-decoration: none;
+            color: #ffffec;
+            font-family: $main-font;
+            margin-top: 2em;
+            width: 100%;
+            font-size: 1.2em;
+            transition:
+                    color 0.3s,
+                    border-right 0.3s;
+            span {
+              color: #ffffec;
+            }
+            &:hover {
+              color: $violetita;
+              border-right: $violetita 0.5em solid;
+              span {
+                color: $violetita;
+              }
+            }
+          }
+          .active {
+            color: $violetita;
+            border-right: $violetita 0.5em solid;
+            span {
+              color: $violetita;
+            }
+          }
+        }
+      }
+    }
+  }
+  .section-body {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    background-color: #ffffec;
+    min-height: 100vh;
+
+    .admin-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 3em;
+      align-items: center;
+      height: 10vh;
+      width: 100%;
+      background-color: #2c2c2c;
+      color: #ffffec;
+      border-bottom: 1px solid $violetita;
+      span {
+        font-family: $header-font;
+        font-size: 1.3em;
+      }
+      .icons-box {
+        width: 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5em;
+        .icon {
+          font-size: 20px;
+          color: #666;
+          cursor: pointer;
+          transition: color 0.3s;
+        }
+
+        .icon.clickable:hover {
+          color: #1890ff;
+        }
+        ul{
+          background-color: #2c2c2c;
+        }
+        .user-menu .ant-dropdown-trigger {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: $beige-crema;
+          cursor: pointer;
+          transition: color 0.3s ease;
+        }
+
+        .user-menu .ant-dropdown-trigger:hover {
+          color: #1890ff;
+        }
+        svg,i{
+          color: $beige-crema;
+        }
+      }
+    }
+    .content-dash {
+      @include editView;
+      .analytics {
+        margin: auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

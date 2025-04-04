@@ -1,0 +1,108 @@
+.item-detail {
+  padding: 5% 8%;
+  .item-detail__container {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 4%;
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px gray;
+    padding: 2em;
+    .item-detail__image-container {
+      width: 45%;
+
+      overflow: hidden;
+      img {
+        width: 500px;
+        height: 500px;
+        object-fit: contain;
+      }
+    }
+
+    .item-detail__info {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      h2 {
+        font-family: $main-font;
+        font-weight: bold;
+      }
+      p {
+        font-family: $main-font;
+        line-height: 30px;
+        font-weight: bold;
+      }
+      span {
+        font-family: $main-font;
+        font-weight: bolder;
+      }
+
+        .count {
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+
+          .count-body {
+            border-radius: 5%;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            .boton-plus-less {
+              color: $violetita;
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+            }
+          }
+        }
+        .link-boton {
+          cursor: pointer;
+          text-decoration: none;
+          font-family: $main-font;
+          font-size: medium;
+          text-align: center;
+          text-align: center;
+          height: 25px;
+          width: 45%;
+          background-color: $violetita;
+          color: #fff;
+          border-radius: 5px;
+          border: none;
+          transition: opacity 0.2s ease-in-out;
+          transition: transform 0.4s;
+          &:hover {
+            transform: scale(1.05);
+            color: black;
+          }
+        }
+        .disabled {
+          cursor: default;
+          text-decoration: none;
+          font-family: $violetita;
+          font-size: medium;
+          text-align: center;
+          text-align: center;
+          height: 25px;
+          width: 45%;
+          background-color: gray;
+          color: black;
+          border-radius: 5px;
+          border: none;
+          transition: none;
+          &:hover {
+            transform: none;
+          }
+        }
+        .error-message {
+          span {
+            font-family: $main-font;
+            color: rgb(155, 77, 77);
+          }
+        }
+
+    }
+  }
+}

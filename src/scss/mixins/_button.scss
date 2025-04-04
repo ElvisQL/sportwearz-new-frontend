@@ -1,0 +1,19 @@
+@mixin buttonCustom {
+  height: 3.125px;
+  border-radius: 1vh;
+  border: none;
+  color: #fff;
+  background-color: $violetita;
+  transition: transform 0.2s;
+  font-family: $main-font;
+  padding: 0.4em;
+  &:hover {
+    transform: scale(1.02);
+    color: black;
+  }
+  &:disabled {
+    background-color: #dddddd; // Cambiar el color de fondo cuando está deshabilitado
+    color: #999999; // Cambiar el color del texto cuando está deshabilitado
+    cursor: not-allowed; // Cambiar el cursor cuando está deshabilitado
+  }
+}

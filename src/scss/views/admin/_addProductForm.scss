@@ -1,0 +1,142 @@
+.add-product-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  h1 {
+    font-family: $main-font;
+    font-size: 2.5em;
+  }
+  .box-formik {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    h2 {
+      font-size: 2em;
+      font-family: $main-font;
+      margin-bottom: 1em;
+    }
+    form {
+      display: grid;
+      height: auto;
+      grid-template-columns: repeat(4, minmax(100px, 1fr));
+      grid-template-rows: auto;
+      grid-template-areas:
+        "form-horizontal-1 form-horizontal-2 form-image    form-image"
+        "form-horizontal-3 form-horizontal-4 form-image    form-image"
+        "form-select       brand       form-image    form-image"
+        "button-submit     button-submit     button-submit button-submit";
+      gap: 2em;
+
+      input[type="text"] {
+        @include inputForm;
+        & {
+          border: solid 0.125em gray;
+          width: 18em;
+        }
+      }
+      .label-horizontal-1 {
+        display: flex;
+        flex-direction: column;
+        grid-area: form-horizontal-1;
+      }
+      .label-select {
+        display: flex;
+        flex-direction: column;
+        grid-area: form-horizontal-2;
+      }
+      .label-horizontal-3 {
+        display: flex;
+        flex-direction: column;
+        grid-area: form-horizontal-3;
+      }
+      .label-horizontal-4 {
+        display: flex;
+        flex-direction: column;
+        grid-area: form-horizontal-4;
+      }
+      .brand {
+        display: flex;
+        flex-direction: column;
+        grid-area: brand;
+      }
+      .label-description {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        grid-area: form-select;
+        textarea {
+          width: 100%;
+          height: 6em;
+          padding: 1em;
+        }
+      }
+      .label-image {
+        grid-area: form-image;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        .container-img {
+          height: 80%;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          img {
+            width: 18em;
+            height: 18em;
+            object-fit: contain;
+          }
+          svg {
+            font-size: 7em;
+          }
+        }
+        input[type="file"] {
+          display: none;
+        }
+        label {
+          margin-top: 2em;
+          background-color: $violetita;
+          width: 50%;
+          color: white;
+          font-family: $main-font;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 3em;
+          cursor: pointer;
+          svg {
+            font-size: 1.5em;
+          }
+
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      .button {
+        grid-area: button-submit;
+        justify-self: center;
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button {
+
+          @include buttonCustom;
+          &{
+            width: 40%;
+            height: 2em;
+          }
+
+        }
+      }
+    }
+  }
+}

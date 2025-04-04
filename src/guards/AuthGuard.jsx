@@ -5,17 +5,21 @@ import {adminRoutes, publicRoutes, userRoutes} from "../routes/routes";
 
 export const AuthGuard = ({ allowedRoles ,redirectPath}) => {
     const user = useSelector(getCurrentUser);
-    const { token, role } = user.user;
+    console.log("Usuario en Redux:", user); // <-- Verifica aquí
+    const { token, role,username } = user.user;
     const location = useLocation();
+    if (!token) {
+        return <Navigate to={publicRoutes.LOGIN} state={{ from: location }} replace />;
+    }
 
     // Si se pasa `redirectPath`, redirige según el rol
     if (redirectPath && token) {
-        if (role === "admin") return <Navigate to={adminRoutes.HOME} replace />;
-        if (role === "user") return <Navigate to={userRoutes.HOME} replace />;
+        if (role === "Admin") return <Navigate to={"/admin"} replace />;
+        if (role === "Usuario") return <Navigate to={`/${username}`} replace />;
     }
+//TODO ARREGLAR HOME Y HACERLA PARA EL USUARIO COMUN
 
-
-    return allowedRoles.includes(role) ? (
+    return allowedRoles?.includes(role) ? (
         <Outlet />
     ) : token ? (
         <Navigate

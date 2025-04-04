@@ -7,7 +7,7 @@ export const NotFoundRoutes = ({children}) => {
     return (
         <Routes>
             {children}
-            <Route path = "*" element={<NotFoundPage/>}></Route>
+            <Route path = "*" element={<>NO ENCONTRADO</>}></Route>
 
         </Routes>
 

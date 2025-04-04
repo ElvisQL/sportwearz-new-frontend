@@ -1,0 +1,266 @@
+.body-login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-gray;
+  .container-login {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); // Borde difuminado
+    border: none; // Eliminamos el borde sólido
+    height: 80%;
+    border-radius: 4vh;
+    padding: 6vh;
+    width: 30%;
+    background-color: $beige-crema;
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-family: $header-font;
+      color: $violetita;
+
+      top: 0;
+      background: $beige-crema;
+      padding: 1rem 0;
+      z-index: 1;
+    }
+    .form-container {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4vh;
+
+      .container-section-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        label {
+          font-family: $main_font;
+          padding-left: 10px;
+        }
+        input {
+          margin-top: 6px;
+          height: 50px;
+          border-radius: 2vh;
+          border: solid 2px $violetita;
+          padding-left: 10px;
+        }
+        span {
+          font-size: 1rem;
+          color: red;
+        }
+      }
+      button {
+        height: 50px;
+        border-radius: 2vh;
+        border: none;
+        color: #fff;
+        background-color: $violetita;
+        transition: transform 0.2s;
+        &:hover {
+          transform: scale(1.02);
+          color: black;
+        }
+        &:disabled {
+          background-color: #dddddd; // Cambiar el color de fondo cuando está deshabilitado
+          color: #999999; // Cambiar el color del texto cuando está deshabilitado
+          cursor: not-allowed; // Cambiar el cursor cuando está deshabilitado
+        }
+      }
+    }
+  }
+  .container-signup {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; // Altura máxima
+    overflow-y: auto; // Scroll interno solo si es necesario
+    border-radius: 4vh;
+    padding: 4vh 6vh;
+    width: 40%;
+    background-color: $beige-crema;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); // Borde difuminado
+    border: none; // Eliminamos el borde sólido
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-family: $header-font;
+      color: $violetita;
+
+      top: 0;
+      background: $beige-crema;
+      padding: 1rem 0;
+      z-index: 1;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      flex-grow: 1;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+
+        label {
+          font-family: $main-font;
+          margin-bottom: 0.3rem;
+          padding-left: 10px;
+          color: gray;
+          font-size: 0.9rem;
+        }
+
+        input {
+          padding: 10px 15px;
+          border: 2px solid rgba($violetita, 0.3); // Borde más suave
+          border-radius: 1.5vh;
+          font-size: 0.95rem;
+          transition: all 0.3s ease;
+          background: rgba(255, 255, 255, 0.8);
+
+          &:focus {
+            outline: none;
+            border-color: $violetita;
+            box-shadow: 0 0 8px rgba($violetita, 0.2);
+          }
+        }
+
+
+        span {
+          color: #ff4444;
+          font-size: 0.8rem;
+          margin-top: 0.2rem;
+          padding-left: 10px;
+          min-height: 1.2rem;
+        }
+      }
+
+      // Campos que ocuparán ancho completo
+      div:nth-child(1),
+      div:nth-child(2),
+      div:nth-child(3),
+      div:nth-child(4),
+      div:last-child {
+        grid-column: 1 / -1;
+      }
+
+      button {
+        grid-column: 1 / -1;
+        padding: 12px;
+        background: linear-gradient(135deg, $violetita, darken($violetita, 10%));
+        color: white;
+        border: none;
+        border-radius: 1.5vh;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 3px 10px rgba($violetita, 0.3);
+        }
+      }
+
+
+      }
+    }
+  }
+
+
+
+// Responsive
+@media (max-width: 1200px) {
+  .container-login {
+    width: 55% !important;
+    padding: 5vh !important;
+  }
+  .container-signup {
+    width: 60% !important;
+    padding: 4vh !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-signup {
+    width: 90% !important;
+    padding: 4vh 3vh !important;
+    max-height: 95vh;
+
+    h1 {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    form {
+      grid-template-columns: 1fr !important;
+      gap: 1rem;
+
+      input {
+        padding: 8px 12px !important;
+      }
+    }
+  }
+  .container-login {
+    width: 85% !important;
+    padding: 4vh 3vh !important;
+    max-height: 95vh;
+
+    h1 {
+      font-size: 1.6rem;
+      margin: 1rem 0;
+    }
+
+    .form-container {
+      gap: 1.5rem;
+
+      .container-section-form {
+        gap: 1.2rem;
+
+        input {
+          padding: 10px 12px !important;
+          font-size: 0.95rem;
+        }
+
+        label {
+          font-size: 0.9rem;
+        }
+      }
+
+      button {
+        padding: 12px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .container-login {
+    width: 95% !important;
+    padding: 3vh 2vh !important;
+    border-radius: 3vh;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    .form-container {
+      gap: 1.2rem;
+
+      input {
+        padding: 8px 10px !important;
+        font-size: 0.9rem;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

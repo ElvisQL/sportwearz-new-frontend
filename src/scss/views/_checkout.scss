@@ -1,0 +1,166 @@
+.header-checkout {
+  background-color: $beige-crema;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  img {
+    height: 60px;
+    width: 200px;
+  }
+}
+
+.checkout-view {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 6rem;
+
+  .hay-productos {
+    width: 60%;
+    height: 100%;
+    max-width: 100%;
+    overflow: auto;
+    h1 {
+      font-size: 25px;
+      font-family: $main-font;
+      margin-bottom: 2rem;
+    }
+    .titulos-resumen {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr;
+      align-items: center;
+      column-gap: 0.5rem;
+      span {
+        font-family: $main-font;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+    .lista-carrito {
+      padding-left: 0;
+      .card-producto-en-espera {
+        display: grid;
+
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+        align-items: center;
+        column-gap: 0.5rem;
+        .titulo-producto {
+          display: flex;
+          align-items: center;
+
+          .container-img-cart {
+            height: 100px;
+            width: 100px;
+            overflow: hidden;
+            img {
+              object-fit: contain;
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .total-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 80px;
+      .total-compra {
+        font-family: $main-font;
+        font-weight: bolder;
+      }
+    }
+    .botones-finales {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      button {
+        height: 30px;
+        width: auto;
+        border: none;
+        border-radius: 10px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: $violetita;
+          color: black;
+        }
+      }
+      .borrartodo {
+        cursor: pointer;
+      }
+      .finalizar {
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .resume {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: 100%;
+    width: 30%;
+    padding: 1rem;
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      font-family: $main-font;
+    }
+    .resume-1 {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      label {
+        margin-right: 2px;
+      }
+      input{
+        @include inputForm;
+      }
+    }
+    .resume-2 {
+      display: flex;
+      flex-direction: column;
+      span {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .resume-3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1em;
+      .envio-box {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          width: 30%;
+        }
+        input{
+          @include inputForm;
+        }
+
+
+
+      }
+      button{
+        @include buttonCustom; & {
+        height: auto;
+      }
+      }
+
+      }
+      }
+    }

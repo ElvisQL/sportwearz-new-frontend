@@ -1,0 +1,18 @@
+.loader {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-family: $main_font;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}

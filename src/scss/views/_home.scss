@@ -1,0 +1,329 @@
+.mainSlider {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.home-container {
+  background-color: $background-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3rem;
+
+  .promo-slider {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    @media (max-width: 992px) {
+      height: 500px;
+    }
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media (max-width: 480px) {
+      height: 300px;
+    }
+    .slick-slide {
+      height: 600px;
+      @media (max-width: 992px) { height: 500px; }
+      @media (max-width: 768px) { height: 400px; }
+      @media (max-width: 480px) { height: 300px; }
+    }
+
+    .promo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .newestSection {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    h1 {
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: $violetita;
+      @media (max-width: 768px) {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    // Añade estos estilos específicos para el slider de novedades
+    .slick-slider {
+      width: 100%;
+
+      .slick-list {
+        margin: 0 -10px;
+        height: 100% !important; // Fuerza la altura
+        .slick-track {
+          display: flex !important;
+          height: 100%;
+          .slick-slide{
+            .card{
+              @include card;
+            }
+          }
+        }
+      }
+
+
+
+      .slick-slide {
+        padding: 0 10px;
+        height: auto !important;
+
+        > div {
+          height: 100%;
+        }
+      }
+
+
+      }
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: darken($violetita, 15%);
+    text-align: center;
+  }
+
+  .menSection,
+  .womenSection,
+  .childrenSection {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 0;
+
+    [class*="img"] {
+      flex: 0 0 350px;
+      height: 500px;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.9;
+      }
+
+      h3 {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: $card-catalogos-font;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .slick-slider {
+      flex: 1;
+      min-width: 0;
+      padding: 1rem;
+
+      .slick-list {
+        margin: 0 -10px;
+        .slick-track{
+          .slick-slide {
+            padding: 0 10px;
+            height: auto;
+
+
+            .card{
+              @include card;
+            }
+          }
+        }
+      }
+
+
+
+      .slick-prev,
+      .slick-next {
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+
+        &::before {
+          color: $violetita;
+          font-size: 2rem;
+          opacity: 0.8;
+          transition: opacity 0.3s;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+
+      .slick-prev {
+        left: -45px;
+      }
+
+      .slick-next {
+        right: -45px;
+      }
+    }
+  }
+
+
+
+  .bottomLabelsSection {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+
+    .circleAd {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 50%;
+      height: 220px;
+      width: 220px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      border: 2px solid $violetita;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      svg {
+        font-size: 2.5rem;
+        color: $violetita;
+        margin-bottom: 1rem;
+      }
+
+      span {
+        font-family: $main-font;
+        color: #333;
+        text-align: center;
+
+        &:first-child {
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .menSection,
+    .womenSection,
+    .childrenSection {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      [class*="img"] {
+        flex: 0 0 100%;
+        max-width: 600px;
+        height: 400px;
+      }
+
+      .slick-slider {
+        flex: 0 0 100%;
+        padding: 0;
+      }
+    }
+
+    .bottomLabelsSection {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+
+      .circleAd {
+        width: 100%;
+        border-radius: 15px;
+        height: auto;
+        padding: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .promo-slider {
+      height: 400px;
+
+      .slick-slide {
+        height: 400px !important;
+      }
+    }
+
+    .menSection,
+    .womenSection,
+    .childrenSection {
+      [class*="img"] {
+        height: 300px;
+
+        h3 {
+          font-size: 2rem !important;
+        }
+      }
+    }
+
+    .newestSection h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .slick-slider {
+      .slick-prev {
+        left: -25px;
+      }
+
+      .slick-next {
+        right: -25px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .slick-slider {
+      .slick-prev,
+      .slick-next {
+        display: none !important;
+      }
+    }
+  }

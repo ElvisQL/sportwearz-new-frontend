@@ -11,16 +11,18 @@ export const userRoutes = {
     CATALOG: "catalog",
     PRODUCT: "product",
     ORDERS: "orders",
-    WISHLIST: "wislist",
+    WISHLIST: "wishlist",
+    CHECKOUT: "checkout"
 };
 
 export const adminRoutes = {
     DASHBOARD : "dashboard",
-    USER : "users",
+    USERS : "users",
     ORDERS: "orders",
     CATEGORY: "categories",
     COUPONS: "coupons",
     BRANDS: "brands",
+    PRODUCTS: "products"
 }
 
 export const crudRoutes = {
