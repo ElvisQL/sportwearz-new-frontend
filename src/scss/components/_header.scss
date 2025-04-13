@@ -11,13 +11,35 @@ header {
     background-color: $beige-crema;
     border-bottom: 1px black solid;
     padding: 0 4rem 0 4rem;
+
+    @include respond-to("tablet") {
+      padding: 0 2rem; // Reducir padding en tablets
+    }
+
+    @include respond-to("mobile") {
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      .toggleMenuSandwich{
+        font-size: 2.5em;
+        color: $violetita;
+      }
+    }
+
     .brand {
       width: 20%;
       height: auto;
-
+      @include respond-to("mobile") {
+        width: 50%; // Logo más grande en móviles
+        margin: 0 auto; // Centrar logo
+        min-width: 200px;
+      }
       img {
         width: 100%;
-        min-width: 150px;
+        min-width: 250px;
+        @include respond-to("small-mobile") {
+          min-width: 180px; // Ajuste para pantallas muy pequeñas
+        }
       }
     }
 
@@ -28,6 +50,13 @@ header {
       gap: 1.5rem;
       color: #333333;
       font-size: 2em;
+      @include respond-to("tablet") {
+        gap: 1rem;
+        font-size: 1.5em; // Reducir tamaño de íconos
+      }
+      @include respond-to("mobile") {
+        display: none;
+      }
 
       .user-menu-container {
         display: flex;
@@ -37,6 +66,9 @@ header {
           font-family: "Barlow Semi Condensed", sans-serif;
           font-weight: normal;
           font-size: 0.8em;
+          @include respond-to("mobile") {
+            display: none; // Ocultar texto en móviles
+          }
         }
         .user-menu {
           background-color: $beige-crema;
@@ -73,6 +105,12 @@ header {
         }
       }
     }
+  .toggleMenuSandwich{
+    display: none;
+    @include respond-to("mobile"){
+      display: block;
+    }
+  }
   }
 
   .bottomHeader {
@@ -81,7 +119,9 @@ header {
     justify-content: center;
     background-color: #333333;
     color: white;
-
+    @include respond-to("mobile") {
+      display: none; // Ocultar menú completo en móviles
+    }
     ul {
       display: flex;
       list-style: none;
@@ -89,16 +129,22 @@ header {
       align-items: center;
       width: 80%;
       margin-bottom: 0;
-
+      @include respond-to("laptop") {
+        width: 90%; // Aprovechar más espacio
+      }
       li {
         margin-right: 1.5rem;
-
+        @include respond-to("tablet") {
+          margin-right: 0.8rem; // Reducir espacio entre items
+        }
         a {
           text-decoration: none;
           color: $beige-crema;
-          font-family: $header-font;
+
           font-size: 16px;
-          font-weight: lighter;
+          @include respond-to("tablet") {
+            font-size: 14px; // Texto más pequeño
+          }
 
           &:hover {
             color: $violetita;
@@ -209,6 +255,7 @@ header {
     }
   }
 }
+
 
 // Estilos para el Drawer del carrito
 .ant-drawer {
@@ -339,6 +386,42 @@ header {
         &::before,
         &::after {
           background: $violetita !important;
+        }
+      }
+    }
+  }
+}
+
+//Estilos para el drawer mobile
+
+.drawerMobileMenu{
+  opacity: 80%;
+  .ant-drawer-header{
+    background-color: $violetita;
+  }
+  .ant-drawer-body{
+    padding: 1.2em 0 0 0;
+    background-color: $violetita;
+    .containerMenuMobile{
+      .principalButtonsNavigation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+      }
+      .navigationCatalog{
+        ul{
+          display: flex;
+          flex-direction: column;
+          padding-left: 0em;
+          list-style: none;
+          gap: 1em;
+          li{
+            background-color: $violetita;
+            .ant-menu{
+              background-color: $violetita;
+            }
+          }
         }
       }
     }

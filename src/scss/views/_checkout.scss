@@ -15,12 +15,23 @@
   align-items: center;
   justify-content: space-between;
   padding: 4rem 6rem;
+  @include respond-to("tablet"){
+    flex-direction: column;
+    height: auto;
+    gap: 5em;
+  }
+  @include respond-to("mobile"){
+    padding: 2rem 3rem;
+  }
 
   .hay-productos {
     width: 60%;
     height: 100%;
     max-width: 100%;
     overflow: auto;
+    @include respond-to("tablet"){
+      width: auto;
+    }
     h1 {
       font-size: 25px;
       font-family: $main-font;
@@ -111,6 +122,9 @@
     height: 100%;
     width: 30%;
     padding: 1rem;
+    @include respond-to("tablet"){
+      width:100%;
+    }
     h2 {
       font-size: 18px;
       font-weight: 500;

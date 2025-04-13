@@ -8,6 +8,12 @@ footer {
     background-color: $beige-crema;
     border-radius: 5px;
     border: 3px ridge $violetita;
+    @include respond-to("mobile"){
+      flex-direction: column;
+    }
+    @include respond-to("small-mobile"){
+       flex-direction: column;
+     }
 
     .text-newsletter {
       display: flex;
@@ -28,6 +34,15 @@ footer {
         color: black;
         line-height: 1.6;
         font-weight: 400;
+      }
+      @include respond-to("small-mobile"){
+        flex-direction: column;
+        width: 100%;
+        p{
+          font-size: 14px;
+          font-family: $main-font;
+
+        }
       }
     }
 
@@ -64,6 +79,9 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @include respond-to("mobile"){
+      flex-direction: column;
+    }
 
     img {
       height: 70px ;
@@ -72,6 +90,9 @@ footer {
       width: 50%;
       display: flex;
       justify-content: space-between;
+      @include respond-to("mobile"){
+        flex-direction: column;
+      }
       ul {
         list-style: none;
         a {

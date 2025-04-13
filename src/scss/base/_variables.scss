@@ -1,6 +1,7 @@
 $violetita: #9f85b0;
 $beige-crema: #ffffec;
 $background-gray: #f5f5f5;
+$violeta-oscuro:#704f86f8;
 
 $main-font: "Nunito", "Monserrat", sans-serif;
 $header-font: "Roboto", sans-serif;
@@ -8,3 +9,10 @@ $card-catalogos-font:  "Barlow Semi Condensed", sans-serif;
 
 $card-titulo-size: 18px;
 $card-precio-size: 16px;
+
+$breakpoints: (
+        "laptop": 1200px,
+        "tablet": 992px,
+        "mobile": 768px,
+        "small-mobile": 576px
+);

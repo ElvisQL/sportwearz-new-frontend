@@ -1,91 +1,123 @@
-.mainSlider {
-  width: 100%;
-
-  img {
-    width: 100%;
-  }
-}
 
 .home-container {
   background-color: $background-gray;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 3rem;
 
   .promo-slider {
-    width: 100%;
-    height: 600px;
+    width: 100vw;
     overflow: hidden;
-    @media (max-width: 992px) {
-      height: 500px;
-    }
+    position: relative;
 
-    @media (max-width: 768px) {
-      height: 400px;
-    }
-
-    @media (max-width: 480px) {
-      height: 300px;
-    }
-    .slick-slide {
-      height: 600px;
-      @media (max-width: 992px) { height: 500px; }
-      @media (max-width: 768px) { height: 400px; }
-      @media (max-width: 480px) { height: 300px; }
-    }
-
-    .promo-image {
+    margin-left: -50vw;
+    margin-right: -50vw;
+    .slick-slider{
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      max-width: 1920px;
+      margin: 0 auto;
+      .slick-list{
+
+        .slick-track{
+
+          .slick-slide{
+            .container_img{
+              position: relative;
+              width: 100%;
+              display: flex !important;
+              justify-content: center;
+              align-items: center;
+
+              max-height: 500px;
+
+              @include respond-to("mobile"){
+                width: 100vw !important;
+                height: auto;
+                aspect-ratio: 1 / 1;
+              }
+              .promo-image {
+                max-width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center center;
+                &.desktop-only {
+                  display: flex;
+                  @include respond-to("mobile"){
+                    display: none;
+                  }
+                }
+                &.mobile-only{
+                  display: none;
+                  @include respond-to("mobile"){
+                    display: block;
+                    width: 100% !important;
+                    height: 100%;
+                    object-fit: contain;
+                    max-width: 720px;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+
+
+      }
+
     }
+
   }
 
   .newestSection {
+
     width: 100%;
-    max-width: 1200px;
+    max-width: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-
+    gap: 1.5rem;
+    @include respond-to("laptop"){
+      max-width: 80vw;
+    }
+    @include respond-to("tablet"){
+      max-width: 90vw;
+    }
     h1 {
       font-weight: 400;
       font-size: 2.5rem;
       color: $violetita;
-      @media (max-width: 768px) {
-        font-size: 2rem;
-        text-align: center;
-      }
 
-      @media (max-width: 480px) {
-        font-size: 1.75rem;
-      }
     }
 
     // Añade estos estilos específicos para el slider de novedades
     .slick-slider {
-      width: 100%;
 
+      width: 100%;
+      @include respond-to("mobile"){
+        padding: 0 10px;
+      }
       .slick-list {
-        margin: 0 -10px;
-        height: 100% !important; // Fuerza la altura
+        @include respond-to("mobile"){
+          height: auto;
+        }
         .slick-track {
-          display: flex !important;
+
           height: 100%;
           .slick-slide{
+            height: 100%;
+
+            > div {
+              height: 100%;
+            }
             .card{
               @include card;
+
             }
           }
         }
       }
-
-
-
       .slick-slide {
         padding: 0 10px;
         height: auto !important;
@@ -109,20 +141,28 @@
   .menSection,
   .womenSection,
   .childrenSection {
+
     width: 100%;
-    max-width: 1200px;
+    max-width: 80vw;
     display: flex;
     gap: 2rem;
-    align-items: center;
+    align-items: stretch;
     margin: 2rem 0;
+    @include respond-to("laptop"){
+      max-width: 90vw;
+
+    }
+    @include respond-to("mobile") {
+      justify-content: center;
+    }
 
     [class*="img"] {
       flex: 0 0 350px;
-      height: 500px;
+
       border-radius: 15px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
 
       &:hover {
@@ -140,11 +180,12 @@
         position: absolute;
         bottom: 2rem;
         left: 50%;
+        top: 50%;
         transform: translateX(-50%);
         font-family: $card-catalogos-font;
         font-size: 2.5rem;
         color: white;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         text-align: center;
         width: 100%;
       }
@@ -153,100 +194,125 @@
     .slick-slider {
       flex: 1;
       min-width: 0;
-      padding: 1rem;
+
+      @include respond-to("mobile") {
+        display: none;
+      }
 
       .slick-list {
-        margin: 0 -10px;
-        .slick-track{
+        height: 100%;
+        margin: 0 -15px;
+
+        .slick-track {
+          height: 100%;
+
           .slick-slide {
-            padding: 0 10px;
-            height: auto;
+            padding: 0 15px;
+            height: 100%;
 
-
-            .card{
-              @include card;
+            > div {
+              height: 100%;
+              width: 100%;
+              .card {
+                @include card;
+                &{
+                  width: auto;
+                  img {
+                    height: 100px;
+                    flex: 0 0 auto;
+                  }
+                  .card-body {
+                    flex: 1;
+                    padding: 1.5rem;
+                  }
+                }
+              }
             }
           }
         }
-      }
 
 
+        .slick-prev,
+        .slick-next {
+          width: 40px;
+          height: 40px;
+          z-index: 1;
 
-      .slick-prev,
-      .slick-next {
-        width: 40px;
-        height: 40px;
-        z-index: 1;
+          &::before {
+            color: $violetita;
+            font-size: 2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+          }
 
-        &::before {
-          color: $violetita;
-          font-size: 2rem;
-          opacity: 0.8;
-          transition: opacity 0.3s;
+          &:hover::before {
+            opacity: 1;
+          }
         }
 
-        &:hover::before {
-          opacity: 1;
+        .slick-prev {
+          left: -45px;
         }
-      }
 
-      .slick-prev {
-        left: -45px;
-      }
-
-      .slick-next {
-        right: -45px;
-      }
-    }
-  }
-
-
-
-  .bottomLabelsSection {
-    width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem 0;
-
-    .circleAd {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      background: white;
-      border-radius: 50%;
-      height: 220px;
-      width: 220px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      border: 2px solid $violetita;
-
-      &:hover {
-        transform: translateY(-5px);
-      }
-
-      svg {
-        font-size: 2.5rem;
-        color: $violetita;
-        margin-bottom: 1rem;
-      }
-
-      span {
-        font-family: $main-font;
-        color: #333;
-        text-align: center;
-
-        &:first-child {
-          font-weight: 600;
-          margin-bottom: 0.5rem;
+        .slick-next {
+          right: -45px;
         }
       }
     }
+
+
+
+  }
+.bottomLabelsSection {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  @include respond-to("mobile") {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .circleAd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 2px solid $violetita;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    svg {
+      font-size: 2.5rem;
+      color: $violetita;
+      margin-bottom: 1rem;
+    }
+
+    span {
+      font-family: $main-font;
+      color: #333;
+      text-align: center;
+
+      &:first-child {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+  /*
   @media (max-width: 1200px) {
     .menSection,
     .womenSection,
@@ -327,3 +393,4 @@
       }
     }
   }
+  */

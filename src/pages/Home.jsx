@@ -1,11 +1,13 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import slider1 from "../images/slider1.webp"
-import slider2 from "../images/slider2.jpg"
-import slider3 from "../images/slider3.webp"
-import slider4 from "../images/slider4.webp"
-import slider5 from "../images/slider5.jpg"
+import slider2 from "../images/slider2.webp"
+import slider3 from "../images/img.png"
+import slider1mobile from "../images/slider1mobile.webp"
+import slider2mobile from "../images/slider2mobile.webp"
+import slider3mobile from "../images/slider3-mobile.webp"
 import hombreCorriendo from "../images/hombre-corriendo.webp";
 import mujerCorriendo from "../images/mujer-corriendo.webp";
 import niñoCorriendo from "../images/niños_jugando.webp";
@@ -45,11 +47,19 @@ export const Home = () => {
     }
 
     const promoImages = [
-        slider1,
-        slider2,
-        slider3,
-        slider4,
-        slider5
+        {
+            desktop:slider1,
+            mobile: slider1mobile
+        },
+        {
+            desktop: slider2,
+            mobile:slider2mobile
+        },
+        {
+            desktop:slider3,
+            mobile:slider3mobile
+        }
+
     ]
 
     const filtrarPorCategoria = (productos, categoria) => {
@@ -98,13 +108,22 @@ export const Home = () => {
 
         <div className={"home-container"}>
             <section className={"promo-slider"}>
-                <Slider autoplay={true} arrows={false}>
+                <Slider
+                    autoplay={true}
+                    arrows={false}
+                    adaptiveHeight={true}
+                >
                     {promoImages.map((img,index)=> (
-                        <div key={index}>
+                        <div className={"container_img"} key={index}>
                             <img
-                                src = {img}
+                                src = {img.desktop}
                                 alt= {`promocion ${index+1}`}
-                                className={"promo-image"}
+                                className={"promo-image desktop-only"}
+                            />
+                            <img
+                                src={img.mobile}
+                                alt={`promocion ${index+1}`}
+                                className={"promo-image mobile-only"}
                             />
                         </div>
                     ))}

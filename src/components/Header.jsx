@@ -7,6 +7,7 @@ import {IoIosLogOut, IoMdPerson} from "react-icons/io";
 import {Badge, Drawer, Menu} from "antd";
 import {FaMinus, FaPlus, FaShoppingCart, FaStar, FaTrash} from "react-icons/fa";
 import {useState} from "react";
+import {HiOutlineMenu} from "react-icons/hi";
 
 
 
@@ -17,7 +18,9 @@ export const Header  = () => {
     const { token, role,username, cart} = user.user;
     const navigate = useNavigate();
     const [isCartVisible, setIsCartVisible] = useState(false);
-    
+    const [isMenuMobileVisible, setIsMenuMobileVisible] = useState(false);
+
+
     const itemsHeaderMenuIndumentarias=[
         {label:"Indumentarias",key:"indumentariaskey",children:[ {
                 label:"Genero",
@@ -101,9 +104,15 @@ export const Header  = () => {
     const showCart = () => {
         setIsCartVisible(true);
     };
+    const showMenuMobile = () => {
+        setIsMenuMobileVisible(true)
+    }
     const hideCart = () => {
         setIsCartVisible(false);
     };
+    const hideMenuMobile = () => {
+        setIsMenuMobileVisible(false)
+    }
     const onMenuClick = ({ key }) => {
         if (key === "logout") {
             navigate("/login")
@@ -149,6 +158,9 @@ export const Header  = () => {
     return (
         <header>
             <div className={"topHeader"}>
+                <div className={"toggleMenuSandwich"} onClick={setIsMenuMobileVisible}>
+                    <HiOutlineMenu />
+                </div>
                 <div className={"brand"}>
                     <Link to={"/"}>
                         <img src={logo} alt={"logo"}/>
@@ -180,6 +192,7 @@ export const Header  = () => {
                     </Badge>
 
                 </div>
+
             </div>
 
             <div className={"bottomHeader"}>
@@ -199,6 +212,52 @@ export const Header  = () => {
                     </li>
                 </ul>
             </div>
+
+
+            <Drawer
+                className={"drawerMobileMenu"}
+                title = {`hola! ${username}`}
+                placement = "left"
+                open = {isMenuMobileVisible}
+                onClose={hideMenuMobile}
+            >
+                {
+                    <div className={"containerMenuMobile"}>
+                        <div className={"principalButtonsNavigation"}>
+                            <Menu
+                                className={"user-menu"}
+                                items={itemsHeaderUserMenu}
+                                mode="vertical"
+                                popupplacement="bottomRight"
+                                onClick={onMenuClick}
+                            />
+                            <Badge color={"info"} showZero count={
+                                cart?.cartItems?.reduce((total, item)=> total + item.quantity , 0)
+                            }>
+                                <FaShoppingCart className={"iconTopHeader"} onClick={showCart}/>
+                            </Badge>
+                        </div>
+                        <div className={"navigationCatalog"}>
+                            <ul>
+                                <li>
+                                    <Link to={`/${username}/${userRoutes.CATALOG}`}>
+                                        Catalogo
+                                    </Link>
+
+                                </li>
+
+                                <li>
+                                    <Menu className="menu-indumentarias" mode="vertical" items={itemsHeaderMenuIndumentarias} />
+                                </li>
+                                <li>
+                                    <Menu className="menu-marcas" mode="vertical" items={itemsHeaderMenuMarcas} />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </Drawer>
+
             <Drawer
                 title="Carrito de Compras"
                 placement="right"

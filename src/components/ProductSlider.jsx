@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import Card from "./Card"; // Importa tu componente Card
+import Card from "./Card";
 
 const ProductSlider = ({ products }) => {
     const sliderSettings = {
@@ -10,17 +10,20 @@ const ProductSlider = ({ products }) => {
         slidesToScroll: 4,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1200,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    centerMode: false,
+                    variableWidth: false
                 },
             },
         ],

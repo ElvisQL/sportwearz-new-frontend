@@ -8,14 +8,44 @@
     border-radius: 30px;
     box-shadow: 0px 2px 5px gray;
     padding: 2em;
+    align-items: center;
+
+    @include respond-to("mobile"){
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5em;
+    }
+
+
     .item-detail__image-container {
       width: 45%;
-
+      max-width: 500px;
+      min-width: 300px;
       overflow: hidden;
+      @include respond-to("tablet"){
+        width: 35%;
+        height: fit-content;
+      }
+      @include respond-to("mobile")
+      {
+        width: 100%;
+        max-width: none;
+        min-width: auto;
+      }
       img {
         width: 500px;
-        height: 500px;
+        height: 100%;
+        max-height: 500px;
         object-fit: contain;
+        @include respond-to("tablet"){
+          max-height: 400px;
+          width: 300px;
+        }
+        @include respond-to("mobile"){
+          max-height: 300px;
+          width: 100%;
+        }
       }
     }
 
@@ -25,18 +55,35 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
+      @include respond-to("mobile") {
+        width: 100%;
+        order: -1; // Mueve la info arriba si lo prefieres
+      }
       h2 {
         font-family: $main-font;
         font-weight: bold;
+        font-size: clamp(1.5rem, 3vw, 2.5rem); // Texto responsive
+        text-align: center;
       }
-      p {
-        font-family: $main-font;
-        line-height: 30px;
-        font-weight: bold;
-      }
+
       span {
         font-family: $main-font;
         font-weight: bolder;
+
+        font-size: clamp(0.5rem, 2vw, 1rem); // Texto responsive
+        @include respond-to("mobile"){
+          font-size: 0.8rem;
+        }
+
+      }
+      p {
+        font-family: $main-font;
+        line-height: 1.6;
+        margin-top: 0.5rem;
+        font-weight: bold;
+        @include respond-to("tablet"){
+          font-size: 14px;
+        }
       }
 
         .count {
