@@ -6,7 +6,7 @@
 [![.NET API](https://img.shields.io/badge/.NET%20API-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 ![Under Development](https://img.shields.io/badge/Status-Under%20Development-yellow)
 
-Pagina: [sportwearz-new-frontend-mlgik9lo1.vercel.app](https://sportwearz-new-frontend-mlgik9lo1.vercel.app/)
+Pagina: https://sportwearz-new-frontend.vercel.app
 
 Plataforma de e-commerce especializada en ropa deportiva, desarrollada con **React.js** y conectada a una API REST personalizada en **.NET 7** (Azure). Proyecto de aprendizaje donde se implementan conceptos de frontend y backend en tiempo real.
 
